@@ -1,0 +1,56 @@
+/* Base reset & typography */
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.5; color: #333; }
+h1, h2, h3, h4 { margin-top: 20px; margin-bottom: 10px; font-weight: 500; line-height: 1.1; }
+h1 { font-size: 36px; }
+h2 { font-size: 30px; }
+h3 { font-size: 24px; }
+h4 { font-size: 18px; }
+p { margin: 0 0 10px; }
+small { font-size: 85%; color: #777; }
+a { color: #337ab7; text-decoration: none; }
+a:hover { color: #23527c; text-decoration: underline; }
+hr { margin-top: 20px; margin-bottom: 20px; border: 0; border-top: 1px solid #eee; }
+
+/* Layout */
+.container { max-width: 970px; margin: 0 auto; padding: 0 15px; }
+.row { display: flex; flex-wrap: wrap; margin: 0 -15px; margin-bottom: 1em; }
+.col-md-6 { width: 50%; padding: 0 15px; }
+@media (max-width: 768px) {
+    .col-md-6 { width: 100%; }
+}
+
+/* Tables */
+.table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+.table th, .table td { padding: 5px; border: 1px solid #ddd; vertical-align: middle; }
+.table thead th { border-bottom: 2px solid #ddd; text-align: left; }
+.table tbody tr:hover { background-color: #f5f5f5; }
+
+/* Custom styles */
+.vs { background-color: rgba(255, 255, 0, 0.22); }
+.vs:before { content: '-'; }
+.irr { color: red; }
+table { page-break-inside: avoid; }
+.break { page-break-before: always; }
+.mt { margin-top: 0.3em; }
+.darker-background { background-color: rgba(192, 192, 192, 0.3); }
+.table .text-center, .text-center { text-align: center; }
+table#zajmena { font-weight: bold; }
+table#zajmena td { padding-top: 2px; padding-bottom: 2px; }
+table#zajmena em { font-weight: normal; }
+
+/* ToC */
+.toc { background-color: #f8f9fa; border: 1px solid #dee2e6; padding: 1em; margin: 1em 0; }
+.toc h2 { margin-top: 0; }
+.toc nav { margin-top: 0.5em; }
+.toc ol { padding-left: 1.5em; }
+.toc li { margin: 0.3em 0; }
+
+/* Print */
+@media print {
+    .container { max-width: none; padding: 0; }
+    .col-md-6 { width: 50%; float: left; padding: 0 15px; }
+    .row { page-break-inside: avoid; margin-bottom: 0.5em; display: block; overflow: hidden; }
+    .toc { display: none; }
+    a { color: #333; text-decoration: none; }
+}
