@@ -21,11 +21,6 @@
 
 <hr>
 
-<div id="toc" class="toc">
-    <h2>Obsah</h2>
-    <nav id="toc-nav"></nav>
-</div>
-
 <h2>Přítomný čas</h2>
 
 <table class="table conj">
@@ -2385,42 +2380,6 @@
     Tomás es el (la/los/las) que corre más rápido (de todos).
 </em></p>
 
-
-<script>
-(function () {
-    const tocNav = document.getElementById('toc-nav');
-    const headings = document.querySelectorAll('h2:not(#toc h2), h3');
-
-    const rootList = document.createElement('ol');
-    let currentSubList = null;
-
-    headings.forEach((heading, index) => {
-        if (!heading.id) {
-            heading.id = 'heading-' + index;
-        }
-
-        const link = document.createElement('a');
-        link.href = '#' + heading.id;
-        link.textContent = heading.textContent.replace(/\s+/g, ' ').trim();
-
-        const item = document.createElement('li');
-        item.appendChild(link);
-
-        if (heading.tagName === 'H2') {
-            rootList.appendChild(item);
-            currentSubList = null;
-        } else {
-            if (!currentSubList) {
-                currentSubList = document.createElement('ol');
-                (rootList.lastElementChild || rootList).appendChild(currentSubList);
-            }
-            currentSubList.appendChild(item);
-        }
-    });
-
-    tocNav.appendChild(rootList);
-})();
-</script>
 
 </body>
 </html>
