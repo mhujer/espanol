@@ -33,8 +33,11 @@ hr { margin-top: 20px; margin-bottom: 20px; border: 0; border-top: 1px solid #ee
 .table.conj4 col.person { width: 30%; }
 /* short tables: only as wide as the content */
 .table.narrow { width: auto; min-width: 50%; }
+/* tables placed next to each other */
+.tables { display: flex; flex-wrap: wrap; align-items: flex-start; column-gap: 10%; }
+.tables > .table.conj, .tables > .table.narrow { width: 40%; min-width: 0; }
 @media screen and (max-width: 768px) {
-    .table.conj, .table.narrow { width: 100%; }
+    .table.conj, .table.narrow, .tables > .table.conj, .tables > .table.narrow { width: 100%; }
 }
 
 /* Custom styles */
@@ -69,7 +72,18 @@ table#zajmena em { font-weight: normal; }
     h2 { font-size: 24px; margin-top: 14px; }
     h3 { font-size: 20px; margin-top: 12px; }
     h4 { font-size: 17px; margin-top: 10px; }
-    h4 + ul, h4 + ol, h4 + p { margin-top: 0; }    .container { max-width: none; padding: 0; }
+    h4 + ul, h4 + ol, h4 + p { margin-top: 0; }
+    /* topics (h2) stand out from subtopics */
+    h2 { font-weight: bold; }
+    /* tighter text and tables */
+    body { line-height: 1.35; }
+    p { margin-bottom: 6px; }
+    ul, ol { margin-top: 4px; margin-bottom: 6px; }
+    .table { margin-bottom: 14px; }
+    .table th, .table td { padding: 3px 5px; }
+    /* gray notes must stay readable on a B&W printer */
+    small { color: #444; }
+    .container { max-width: none; padding: 0; }
     .col-md-6 { width: 50%; float: left; padding: 0 15px; }
     .row { break-inside: avoid; margin-bottom: 0.5em; display: block; overflow: hidden; }
     .toc { display: none; }
@@ -77,7 +91,7 @@ table#zajmena em { font-weight: normal; }
     /* never leave a heading alone at the bottom of a page */
     h2, h3, h4 { break-after: avoid; break-inside: avoid; }
     /* keep an intro paragraph with the block right after it */
-    p:has(+ ul), p:has(+ ol), p:has(+ table), p:has(+ .row) { break-after: avoid; }
+    p:has(+ ul), p:has(+ ol), p:has(+ table), p:has(+ .row), p:has(+ .tables) { break-after: avoid; }
     li { break-inside: avoid; }
     /* keep the first two items together, so a heading never ends up with a single item */
     li:first-child:not(:last-child) { break-after: avoid; }

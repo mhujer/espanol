@@ -34,6 +34,7 @@ Grammar sections in index.html organized as:
 ### HTML Structure
 - All grammar tables use `table.table`
 - Verb conjugation tables have 6 forms: yo/tú/él-ella-usted + nosotros/vosotros/ellos-ellas-ustedes
+- Consecutive `table.conj` / `table.narrow` tables can be wrapped in `div.tables` - they are placed side by side (40% width each, wrapping to the next line). Only group tables of similar height.
 - Two tables can be placed side by side with `div.row > div.col-md-6` to save print space
 
 ### Custom CSS Classes
