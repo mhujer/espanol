@@ -37,6 +37,11 @@ Grammar sections in index.html organized as:
 - Two tables can be placed side by side with `div.row > div.col-md-6` to save print space
 
 ### Custom CSS Classes
+- `table.conj` - conjugation table: half width, equal columns, header as `<th colspan="2">`
+- `table.conj.conj4` - conjugation table with pronouns (4 columns): add `<colgroup>` with `col.person` for pronoun columns, header `<th colspan="4">`
+- `table.conj.conj-wide` - conjugation table with long notes in cells (wider)
+- `table.narrow` - short non-conjugation tables (width by content, min. half)
+- `th .note` - non-bold explanatory note in a table header (put on a new line with `<br>`)
 - `.vs` - yellow background for endings (prepends a `-` before the ending)
 - `.irr` - red text for irregular forms
 - `.break` - force page break before element
