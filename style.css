@@ -30,8 +30,8 @@ hr { margin-top: 20px; margin-bottom: 20px; border: 0; border-top: 1px solid #ee
 .vs { background-color: rgba(255, 255, 0, 0.22); }
 .vs:before { content: '-'; }
 .irr { color: red; }
-table { page-break-inside: avoid; }
-.break { page-break-before: always; }
+table { break-inside: avoid; }
+.break { break-before: page; }
 .mt { margin-top: 0.3em; }
 .darker-background { background-color: rgba(192, 192, 192, 0.3); }
 .table .text-center, .text-center { text-align: center; }
@@ -47,10 +47,29 @@ table#zajmena em { font-weight: normal; }
 .toc li { margin: 0.3em 0; }
 
 /* Print */
+@page {
+    size: A4;
+    margin: 0.4in 0.35in;
+    @bottom-right { content: counter(page) " / " counter(pages); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 12px; color: #000; }
+}
 @media print {
-    .container { max-width: none; padding: 0; }
+    h1, h2, h3, h4 { margin-bottom: 4px; }
+    h1 { font-size: 28px; }
+    h2 { font-size: 24px; margin-top: 14px; }
+    h3 { font-size: 20px; margin-top: 12px; }
+    h4 { font-size: 17px; margin-top: 10px; }
+    h4 + ul, h4 + ol, h4 + p { margin-top: 0; }    .container { max-width: none; padding: 0; }
     .col-md-6 { width: 50%; float: left; padding: 0 15px; }
-    .row { page-break-inside: avoid; margin-bottom: 0.5em; display: block; overflow: hidden; }
+    .row { break-inside: avoid; margin-bottom: 0.5em; display: block; overflow: hidden; }
     .toc { display: none; }
+
+    /* never leave a heading alone at the bottom of a page */
+    h2, h3, h4 { break-after: avoid; break-inside: avoid; }
+    /* keep an intro paragraph with the block right after it */
+    p:has(+ ul), p:has(+ ol), p:has(+ table), p:has(+ .row) { break-after: avoid; }
+    li { break-inside: avoid; }
+    /* keep the first two items together, so a heading never ends up with a single item */
+    li:first-child:not(:last-child) { break-after: avoid; }
+    p, li { orphans: 3; widows: 3; }
     a { color: #333; text-decoration: none; }
 }

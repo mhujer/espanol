@@ -63,4 +63,6 @@ When adding new grammar sections:
 5. Note any irregular forms or exceptions
 
 ### Print Layout
-Print settings note at top: Chrome A4, margins 0.5" sides, 0.6" top/bottom
+- A4 size, margins (0.35" sides, 0.4" top/bottom) and page numbers are set via `@page` in `style.css`. In Chrome keep margins "Default" and disable "Headers and footers".
+- Page breaks are controlled by CSS rules (no break after headings, intro paragraph kept with the following list/table, no breaks inside tables/`.row`/`li`, first two `li` kept together). Use `.break` only for manual page breaks.
+- Colors are for screen only; prints on a B&W printer (backgrounds are not forced; `.irr` forms are distinguished by bold).
